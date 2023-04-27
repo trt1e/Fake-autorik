@@ -9,4 +9,5 @@ I belive I have added enoght instructions so that anyone with a litel bit of cod
 To get this up and runing you need to have python installd, you also need the py library Tkinter by (in cmd): pip istall Tkinter
 Then you drag all the files in one folder and run the python script, and your done!
 
-Also change the "ante - cbt", thats suposed to be your background img
+Also change the "ante - cbt", thats suposed to be your background img.
+The photoshop img is relly ez to change out 2!
