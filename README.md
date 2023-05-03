@@ -11,3 +11,6 @@ Then you drag all the files in one folder and run the python script, and your do
 
 Also change the "ante - cbt", thats suposed to be your background img.
 The photoshop img is relly ez to change out 2!
+
+If you want to not have the kinda bad adobe downloader, then you can just remove the create_new_window triger.
+If you want to change the text that appers when it fake downloads adobe then you can change the "realsoundingwords.txt" folder.
