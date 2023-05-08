@@ -41,19 +41,19 @@ def longer_squar():
     squares.place(relx=0.5, rely=0.9, anchor=CENTER)
 
 # Add blue top bar
-bar = Canvas(squar, width=460, height=95, bg='#80bceb', highlightthickness=0)
+bar = Canvas(squar, width=460, height=95, bg='#83d0f5', highlightthickness=0)
 bar.place(relx=0.5, rely=0, anchor=N)
 
 # Add the "User Account Control" label
-label = Label(root, text="User Account Control", font=("Segoe UI", 9), fg="black", bg='#80bceb')
+label = Label(root, text="User Account Control", font=("Segoe UI", 9), fg="black", bg='#83d0f5')
 label.place(x=475, y=175)
 
 # Add the "Tillåter du att den här appen får göra" label
-label = Label(root, text="Tillåter du att den här appen får göra", font=("Segoe UI", 14), fg="black", bg='#80bceb')
+label = Label(root, text="Tillåter du att den här appen får göra", font=("Segoe UI", 14), fg="black", bg='#83d0f5')
 label.place(x=475, y=200)
 
 # Add the "ändringar på enheten?" label
-label = Label(root, text="ändringar på enheten?", font=("Segoe UI", 14), fg="black", bg='#80bceb')
+label = Label(root, text="ändringar på enheten?", font=("Segoe UI", 14), fg="black", bg='#83d0f5')
 label.place(x=475, y=228)
 
 # Load image and create a label to display it
@@ -435,7 +435,7 @@ def log(message):
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
         # Create the log directory if it doesn't exist
-        log_dir = "logs"
+        log_dir = "savedfromfakeautorik"
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
 
@@ -472,12 +472,12 @@ def on_click(e):
     root.destroy()
 
 def on_leave(e):
-    square.config(bg="#80bceb")
+    square.config(bg="#83d0f5")
     square.itemconfig(line1, fill="black")
     square.itemconfig(line2, fill="black")
 
 # Create the square
-square = Canvas(root, width=27, height=30, bg='#80bceb', highlightthickness=0)
+square = Canvas(root, width=27, height=30, bg='#83d0f5', highlightthickness=0)
 square.place(x=886, y=172)
 
 # Draw "X" shape using two lines
