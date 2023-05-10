@@ -7,6 +7,8 @@ import random
 import winsound
 import os
 from datetime import datetime
+from pystray import MenuItem as item
+import pystray
 
 # Play the alert sound
 winsound.PlaySound("SystemHand", winsound.SND_ALIAS)
@@ -169,6 +171,11 @@ def on_key_press(event):
     else:
         x_icon.place(x=5000, y=5000)
 
+    # Switch focus to password field if Enter key is pressed while in username field
+    if event.keysym == "Return" and event.widget == username_entry:
+        password_entry.focus()
+        on_press(event)
+
 def on_click(event):
     # Set focus to password entry field if clicked on lösenord label
     if event.widget == lösenord_label:
@@ -309,9 +316,15 @@ def on_hover_leave(event):
         lösenord_label.configure(bg="#181818")
         password_entry.configure(bg="#181818", highlightbackground="#646464")
 
+def on_return(event):
+    on_press(None)
+
 # Create an entry field for the password
 password_entry = Entry(root, width=30, font=("Segoe UI", 14), bg="#181818", fg="black", show="●", bd=0, highlightthickness=1, highlightcolor="#646464", highlightbackground="#646464")
 password_entry.place(x=475, y=540)
+
+# Bind the return key to the password entry field
+password_entry.bind("<Return>", on_return)
 
 # Bind the enter and leave event to the hover event
 password_entry.bind("<Enter>", on_hover_enter)
@@ -464,7 +477,7 @@ ja_button.bind("<Button-1>", on_press)
 
 # Change color property on hover
 def on_enter(e):
-    square.config(bg="red")
+    square.config(bg="#De1b1b")
     square.itemconfig(line1, fill="white")
     square.itemconfig(line2, fill="white")
 
@@ -477,12 +490,16 @@ def on_leave(e):
     square.itemconfig(line2, fill="black")
 
 # Create the square
-square = Canvas(root, width=27, height=30, bg='#83d0f5', highlightthickness=0)
-square.place(x=886, y=172)
+square = Canvas(root, width=40, height=30, bg='#83d0f5', highlightthickness=0)
+square.place(x=873, y=172)
 
-# Draw "X" shape using two lines
-line1 = square.create_line(10, 10, 20, 20, fill="black", width=1)
-line2 = square.create_line(10, 20, 20, 10, fill="black", width=1)
+# Get the center coordinates of the square
+center_x = 20
+center_y = 15
+
+# Draw "X" shape using two lines, starting and ending at the center
+line1 = square.create_line(center_x - 5, center_y - 5, center_x + 5, center_y + 5, fill="black", width=1)
+line2 = square.create_line(center_x - 5, center_y + 5, center_x + 5, center_y - 5, fill="black", width=1)
 
 square.bind("<Enter>", on_enter)
 square.bind("<Leave>", on_leave)
@@ -539,10 +556,10 @@ def create_new_window():
 
     # set the background color of the window to white
     new_window.configure(bg="#ffffff")
-
-    # set the window icon
-    new_window.iconbitmap("adobe.ico")
-
+    
+    # set the windows icon
+    new_window.iconbitmap('adobe.ico')
+    
     # load the image and subsample it
     image = tk.PhotoImage(file="adobe.png")
     image = image.subsample(2, 2)
