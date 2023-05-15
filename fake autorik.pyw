@@ -66,11 +66,11 @@ label = Label(root, image=photo, borderwidth=0, highlightthickness=0)
 label.place(x=475, y=285)
 
 # Add the "Photoshop Client Service" label
-label = Label(root, text="Photoshop Client Service", font=("system fallback", 14), fg='#E4e4e4', bg='#282828')
+label = Label(root, text="Gimp Client Service", font=("system fallback", 14), fg='#E4e4e4', bg='#282828')
 label.place(x=530, y=295)
 
 # Add the "Verifierad utgivare: Adobe Corp." label
-label = Label(root, text="Verifierad utgivare: Adobe Corp.", font=("system fallback", 11), fg="#E4e4e4", bg='#282828')
+label = Label(root, text="Verifierad utgivare: University of California", font=("system fallback", 11), fg="#E4e4e4", bg='#282828')
 label.place(x=475, y=350)
 
 # Add the "Filens ursprung: Hårddisk på den här datorn" label
@@ -548,7 +548,7 @@ except TclError:
 def create_new_window():
     # create a new window
     new_window = tk.Tk()
-    new_window.title("Adobe: PhotoShop downloader_64")
+    new_window.title("Gimp downloader_64")
     new_window.geometry("365x300")
 
     # make the new window non-resizable
@@ -559,27 +559,30 @@ def create_new_window():
     
     # set the windows icon
     new_window.iconbitmap('adobe.ico')
-    
-    # load the image and subsample it
-    image = tk.PhotoImage(file="adobe.png")
-    image = image.subsample(2, 2)
+
+    # Load image and create a label to display it
+    image = Image.open("adobe.png")
+    image = image.resize((170, 80))
+    photo = ImageTk.PhotoImage(image)
+    label = Label(new_window, image=photo, borderwidth=0, highlightthickness=0)
+    label.place(x=475, y=285)
 
     # create the label widget to display the real-sounding words
     word_label = tk.Label(new_window, text="", font=("Adobe Clean", 12), bg="#ffffff")
     word_label.pack(pady=10)
 
     # create another label widget to display some additional text
-    additional_label = tk.Label(new_window, text="Downloading Adobe: PhotoShop...", font=("Arial Rounded MT Bold", 12), bg="#ffffff")
+    additional_label = tk.Label(new_window, text="Downloading Gimp...", font=("Arial Rounded MT Bold", 12), bg="#ffffff")
     additional_label.pack(pady=10)
 
     # create the label widget to display the image
-    image_label = tk.Label(new_window, image=image, borderwidth=0, highlightthickness=0)
+    image_label = tk.Label(new_window, image=photo, borderwidth=0, highlightthickness=0)
     image_label.pack(pady=20)
 
     # create the progress bar widget
     style = ttk.Style()
     style.theme_use("default")
-    style.configure("red.Horizontal.TProgressbar", foreground='#ff0000', background='#ff0000')
+    style.configure("red.Horizontal.TProgressbar", foreground='#ff0000', background='#d7d7d7')
     progress_bar = ttk.Progressbar(new_window, style="red.Horizontal.TProgressbar", orient="horizontal", length=200, mode="determinate", maximum=100, value=0)
     progress_bar.pack(pady=20)
 
@@ -597,27 +600,24 @@ def create_new_window():
 
     # start the progress bar animation
     def update_progress():
-        loading_time, word = loading_times.pop(0)
-        progress_bar["maximum"] = loading_time
-        progress_bar["value"] = 0
-        word_label.config(text=word, bg="#ffffff")
+        if loading_times:
+            loading_time, word = loading_times.pop(0)
+            progress_bar["maximum"] = loading_time
+            progress_bar["value"] = 0
+            word_label.config(text=word, bg="#ffffff")
 
-        def increment_progress():
-            value = progress_bar["value"]
-            if value == loading_time:
-                new_word = random.choice(words)
-                loading_times.append((random.randint(2, 30), new_word))
-                word_label.config(text=new_word)
-                update_progress()
-            else:
-                progress_bar["value"] = value + 1
-                new_window.after(500, increment_progress)
+            def increment_progress():
+                value = progress_bar["value"]
+                if value == loading_time:
+                    new_word = random.choice(words)
+                    loading_times.append((random.randint(2, 30), new_word))
+                    word_label.config(text=new_word)
+                    update_progress()
+                else:
+                    progress_bar["value"] = value + 1
+                    new_window.after(500, increment_progress)
 
-        increment_progress()
-
-    # create the label widget to display the real-sounding words
-    word_label = tk.Label(new_window, text="", font=("Adobe Clean", 12), bg="#ffffff")
-    word_label.pack(pady=10)
+            increment_progress()
 
     # set up the event handler for closing the window
     def on_close():
