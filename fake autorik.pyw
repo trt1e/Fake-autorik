@@ -7,8 +7,6 @@ import random
 import winsound
 import os
 from datetime import datetime
-from pystray import MenuItem as item
-import pystray
 
 # Play the alert sound
 winsound.PlaySound("SystemHand", winsound.SND_ALIAS)
