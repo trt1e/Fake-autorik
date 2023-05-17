@@ -382,7 +382,7 @@ lbl_eye.bind("<ButtonRelease-1>", on_release)
 lbl_eye.place(x=5000, y=5000)
 
 # Add the "Domän: EDUAD" label
-label = Label(root, text="Domän: EDUAD", font=("system fallback", 10), fg="#E4e4e4", bg='#282828')
+label = Label(root, text="Domän: ABCDQ", font=("system fallback", 10), fg="#E4e4e4", bg='#282828')
 label.place(x=475, y=580)
 
 def on_press(event):
