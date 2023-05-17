@@ -1,26 +1,28 @@
-# Fake-autorik
+Fake-autorik
+Disclaimer: This project is for educational purposes only!
 
-In this project im trying to create a fake login screen to trick your shool admin.
-Im planing on achiving this by your admin thinking this was GIMP that you need to download for arts and crafts class.
+Fake-autorik is a project aimed at creating a fake login screen for educational purposes. It demonstrates a potential scenario where an individual could trick a school administrator into believing they need GIMP (GNU Image Manipulation Program) for an arts and crafts class.
 
-# Changes needed
+Configuration
+Before running the project, make the following changes:
 
-You need to change the "Domän: EDUAD" to your domain.
-I belive I have added enoght instructions so that anyone with a litel bit of coding knolage can adjust anything to their chosing.
+Change the "Domän: ABCDQ" text to your specific domain.
+Detailed instructions are provided to help users with basic coding knowledge customize the project according to their requirements.
+Running the Project
+To run the project, follow these steps:
 
-# Running
+Make sure you have Python installed on your system.
+Install the required libraries by running the following command in the command prompt: pip install tkinter Pillow winsound
+Place all the project files in a single folder.
+Run the Python script.
+The project will be up and running!
+Customization
+For further customization, consider the following options:
 
-To get this up and runing you need to have python installd, you also need the py library Tkinter by (in cmd): pip istall Tkinter
-Then you drag all the files in one folder and run the python script, and your done!
-
-# EZ changes
-
-Also change the "ante - cbt", thats suposed to be your background img.
-The GIMP img is relly ez to change out 2!
-
-If you want to not have the kinda bad GIMP downloader, then you can just remove the create_new_window triger.
-If you want to change the text that appers when it fake downloads GIMP then you can change the "realsoundingwords.txt" folder.
-
-# Additionaly
-
-This program was made using chat-GPT
+Background Image: Replace the "background.jpg" file with your desired background image. To enhance the appearance, you can blur the image using software like Photoshop.
+GIMP Images: The GIMP-related images can also be easily replaced.
+Disabling GIMP Downloader: If you prefer not to include the GIMP downloader, simply remove the trigger for the "create_new_window" function.
+Modifying Fake Download Text: To change the text that appears during the fake GIMP download, modify the contents of the "realsoundingwords.txt" file.
+Additional Information
+This program was developed using Chat-GPT.
+Remember, this project is for educational purposes only!
