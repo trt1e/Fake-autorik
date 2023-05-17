@@ -23,4 +23,4 @@ If you want to change the text that appers when it fake downloads GIMP then you 
 
 # Additionaly
 
-This program was origenaly Adobe photoshop themed, but turned out that schools chant have a subscription that they havent payed for on their pc's, so i rebranded to GIMP (witch is free)
+This program was made using chat-GPT (as a tool)
