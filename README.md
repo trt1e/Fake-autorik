@@ -23,4 +23,4 @@ If you want to change the text that appers when it fake downloads GIMP then you 
 
 # Additionaly
 
-This program was made using chat-GPT (as a tool)
+This program was made using chat-GPT
